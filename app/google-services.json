@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "216030027897",
+    "project_id": "meme-3725d",
+    "storage_bucket": "meme-3725d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216030027897:android:f7ef85ff924ad78c6b34a8",
+        "android_client_info": {
+          "package_name": "com.example.meme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216030027897-qibbedad6ib9q682htetjiei36f5mamn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.meme",
+            "certificate_hash": "54cce41bd91d6764a9a547dd8c98f3f35499a0ff"
+          }
+        },
+        {
+          "client_id": "216030027897-6gimhlj3b09kscabvuj0fmf4fsbgdheo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDgobrV1SFUWzCcU0DcCYC9UKchCcI8zg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216030027897-6gimhlj3b09kscabvuj0fmf4fsbgdheo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
