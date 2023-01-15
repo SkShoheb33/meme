@@ -19,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     EditText userName,password,cpassword,email;
@@ -26,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
     ProgressDialog progressDialog;
+
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,20 +67,12 @@ public class RegisterActivity extends AppCompatActivity {
                 progressDialog.setTitle("Registration");
                 progressDialog.setCanceledOnTouchOutside(true);
                 progressDialog.show();
-                mAuth.createUserWithEmailAndPassword(gmail,pswd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            progressDialog.dismiss();
-                            Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-                            Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
-                        }else{
-                            progressDialog.dismiss();
-                            Toast.makeText(RegisterActivity.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                databaseReference = FirebaseDatabase.getInstance().getReference().child("users");
+                User new_user = new User(pswd,gmail);
+                databaseReference.child(user).setValue(new_user);
+                Toast.makeText(RegisterActivity.this,"registered successfully",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }else{
                 Toast.makeText(this, "Please enter valid email id", Toast.LENGTH_SHORT).show();
                 email.setError("Enter valid email");
